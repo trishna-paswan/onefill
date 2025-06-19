@@ -45,6 +45,7 @@ def fill_google_form(url, user_data):
                 filled += 1
             else:
                 print(f"⚠️ No good match for: {label}")
+                
 
         try:
             page.locator('div[role="button"]', has_text="Submit").click()
