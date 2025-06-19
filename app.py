@@ -4,6 +4,10 @@ from form_parser import extract_fields_from_form
 from autofiller import fill_google_form
 from fuzzywuzzy import fuzz
 import re
+import subprocess
+
+# Ensure Playwright browsers are installed at runtime on Render
+subprocess.run(["playwright", "install", "chromium"], check=False)
 
 app = Flask(__name__)
 
