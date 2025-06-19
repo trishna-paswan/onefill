@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submission Results</title>
+</head>
+<body>
+    <h2>Submission Summary</h2>
+    <ul>
+        {% for url, count in results %}
+            <li><strong>{{ url }}</strong>: Filled {{ count }} fields</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

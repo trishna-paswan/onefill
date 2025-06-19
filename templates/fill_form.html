@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unified Form</title>
+</head>
+<body>
+    <h2>Fill Required Details</h2>
+    <form method="POST" action="/fill">
+        {% for field in fields %}
+            <label>{{ field.title() }}</label><br>
+            <input type="text" name="{{ field }}" required><br><br>
+        {% endfor %}
+
+        {% for url in urls %}
+            <input type="hidden" name="urls" value="{{ url }}">
+        {% endfor %}
+
+        <button type="submit">Submit to All Google Forms</button>
+    </form>
+</body>
+</html>
