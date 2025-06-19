@@ -17,11 +17,8 @@ def extract_fields_from_form(url):
 
         for i in range(blocks.count()):
             try:
-                # Many Google Forms use this for the label
-                label_el = blocks.nth(i).locator('div[role="heading"], .M7eMe')  # fallback to class if needed
+                label_el = blocks.nth(i).locator('div[role="heading"], .M7eMe').first
                 raw_label = label_el.inner_text().strip()
-
-                # 🧼 Clean label: remove *, colons, linebreaks
                 clean_label = re.sub(r"[*:\n]+", "", raw_label).strip().lower()
 
                 if clean_label:
@@ -29,6 +26,7 @@ def extract_fields_from_form(url):
             except Exception as e:
                 print(f"⚠️ Skipped block {i}: {e}")
                 continue
+
 
         browser.close()
 
