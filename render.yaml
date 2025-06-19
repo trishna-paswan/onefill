@@ -2,7 +2,6 @@ services:
   - type: web
     name: onefill
     env: python
-    region: oregon
     buildCommand: |
       pip install -r requirements.txt
       playwright install
@@ -12,3 +11,4 @@ services:
         value: 3.10.13
       - key: FLASK_ENV
         value: production
+
