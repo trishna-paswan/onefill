@@ -7,7 +7,7 @@ def extract_fields_from_form(url):
         page = browser.new_page()
         print(f"🌐 Navigating to {url}")
         page.goto(url, timeout=10000)
-        page.wait_for_timeout(2000)  # Ensure form loads fully
+        page.wait_for_timeout(2000)  # Wait for full form load
 
         labels = set()
         blocks = page.locator('div[role="listitem"]')
@@ -17,13 +17,11 @@ def extract_fields_from_form(url):
                 block = blocks.nth(i)
                 label_els = block.locator('div[role="heading"], .M7eMe')
 
-                for j in range(label_els.count()):
-                    raw_label = label_els.nth(j).inner_text().strip()
+                if label_els.count() > 0:
+                    raw_label = label_els.nth(0).inner_text().strip()
                     clean_label = re.sub(r"[*:\n]+", "", raw_label).strip().lower()
-
                     if clean_label:
                         labels.add(clean_label)
-                        break  # Stop at the first valid label
             except Exception as e:
                 print(f"⚠️ Skipped block {i}: {e}")
                 continue
