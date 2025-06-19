@@ -1,4 +1,3 @@
-
 from playwright.sync_api import sync_playwright
 import re
 
@@ -8,27 +7,27 @@ def extract_fields_from_form(url):
         page = browser.new_page()
         print(f"🌐 Navigating to {url}")
         page.goto(url, timeout=10000)
-        page.wait_for_timeout(2000)  # Wait for full form load
+        page.wait_for_timeout(2000)  # Ensure form loads fully
 
         labels = set()
-
-        # Target all form question blocks
         blocks = page.locator('div[role="listitem"]')
 
         for i in range(blocks.count()):
             try:
-                label_el = blocks.nth(i).locator('div[role="heading"], .M7eMe').first
-                raw_label = label_el.inner_text().strip()
-                clean_label = re.sub(r"[*:\n]+", "", raw_label).strip().lower()
+                block = blocks.nth(i)
+                label_els = block.locator('div[role="heading"], .M7eMe')
 
-                if clean_label:
-                    labels.add(clean_label)
+                for j in range(label_els.count()):
+                    raw_label = label_els.nth(j).inner_text().strip()
+                    clean_label = re.sub(r"[*:\n]+", "", raw_label).strip().lower()
+
+                    if clean_label:
+                        labels.add(clean_label)
+                        break  # Stop at the first valid label
             except Exception as e:
                 print(f"⚠️ Skipped block {i}: {e}")
                 continue
 
-
         browser.close()
-
         print(f"✅ Extracted labels: {labels}")
         return labels
