@@ -62,7 +62,6 @@ def scan():
 
     return render_template("unified_form.html", fields=sorted(final_fields), urls=urls)
 
-
 @app.route("/fill", methods=["POST"])
 def fill():
     user_data = {k: v for k, v in request.form.items() if k != "urls"}
