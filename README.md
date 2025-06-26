@@ -40,15 +40,15 @@ OneFill is an intelligent, web-based autofiller that allows users to submit mult
 ---
 
 ### 🚀 How It Works
-Paste Google Form URLs
+~ Paste Google Form URLs
 
-We extract field labels using Playwright
+~ We extract field labels using Playwright
 
-You fill a unified form on our site
+~ You fill a unified form on our site
 
-We auto-match fields using AI (FuzzyWuzzy)
+~ We auto-match fields using AI (FuzzyWuzzy)
 
-Forms are filled and submitted automatically!
+~ Forms are filled and submitted automatically!
 
 ---
 
