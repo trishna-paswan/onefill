@@ -6,10 +6,15 @@ OneFill is an intelligent, web-based autofiller that allows users to submit mult
 
 ### 📌 Features
 ✅ Multiple Form Support
+
 ✅ Smart Field Extraction via Playwright
+
 ✅ Unified Input Form for all fields
+
 ✅ Fuzzy Matching between input & form labels
+
 ✅ Auto Submission to all Google Forms
+
 ✅ Live Deployment using Render
 
 ### 🖥️ Demo
