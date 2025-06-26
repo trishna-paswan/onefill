@@ -4,8 +4,9 @@ OneFill is an intelligent, web-based autofiller that allows users to submit mult
 
 
 <p align="center"> <img src="https://img.shields.io/badge/Built%20With-Flask-blue.svg" /> <img src="https://img.shields.io/badge/Web%20Automation-Playwright-green.svg" /> <img src="https://img.shields.io/badge/AI%20Matching-FuzzyWuzzy-yellow.svg" /> <img src="https://img.shields.io/badge/Deployed%20On-Render-purple.svg" /> </p>
----
+
 ### 📌 Features
+
 ✅ Multiple Form Support
 
 ✅ Smart Field Extraction via Playwright
@@ -17,11 +18,13 @@ OneFill is an intelligent, web-based autofiller that allows users to submit mult
 ✅ Auto Submission to all Google Forms
 
 ✅ Live Deployment using Render
+
 ---
 
 ### 🖥️ Demo
 🌐 Try it live here:
 🔗 https://onefill.onrender.com
+
 ---
 
 ### 🛠️ Tech Stack
@@ -31,9 +34,11 @@ OneFill is an intelligent, web-based autofiller that allows users to submit mult
 | Backend      | Python, Flask             |
 | Automation   | Playwright                |
 | AI Matching  | FuzzyWuzzy + Levenshtein  |
-| Frontend     | HTML, Tailwind CSS|
+| Frontend     | HTML, Tailwind CSS        |
 | Deployment   | Render                    |
+
 ---
+
 ### 🚀 How It Works
 Paste Google Form URLs
 
@@ -44,7 +49,9 @@ You fill a unified form on our site
 We auto-match fields using AI (FuzzyWuzzy)
 
 Forms are filled and submitted automatically!
+
 ---
+
 ### 🧪 Local Setup
 1. Clone the Repository
 git clone https://github.com/trishna-paswan/onefill.git
@@ -58,7 +65,9 @@ playwright install chromium
 4. Run the App
 python app.py
 Visit: http://localhost:10000
+
 ---
+
 ### ✨ Author
 Made with ❤️ by Trishna Kumari Paswan
 📧 Connect on GitHub
