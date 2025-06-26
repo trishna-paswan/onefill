@@ -92,4 +92,5 @@ Visit: http://localhost:10000
 
 ### ✨ Author
 Made with ❤️ by Trishna Kumari Paswan
+
 📧 Connect on GitHub
