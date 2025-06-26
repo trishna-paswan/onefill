@@ -8,7 +8,9 @@ def fill_google_form(url, user_data):
     print(f"🧠 User Provided Fields: {list(user_data.keys())}")
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        # autofiller.py (update this line)
+        browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
+
         page = browser.new_page()
         page.goto(url)
         time.sleep(2)
