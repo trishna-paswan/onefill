@@ -1,13 +1,60 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Multi-Google Form Autofiller</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OneFill – Auto Google Form Filler</title>
+  <link rel="icon" href="/static/favicon.ico"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<body>
-    <h1>Paste Google Form URLs</h1>
-    <form method="POST" action="/scan">
-        <textarea name="form_urls" rows="6" cols="60" required></textarea><br>
-        <button type="submit">Scan Forms</button>
-    </form>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <img src="/static/logo.jpg" alt="Logo" class="h-10 w-10 rounded-full border border-blue-400" />
+        <h1 class="text-2xl font-bold text-white tracking-wide">OneFill</h1>
+      </div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="/" class="text-blue-400 font-medium">Home</a>
+        <a href="/dashboard" class="text-gray-300 hover:text-white transition">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow px-4 py-16">
+    <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-6">Auto-Fill Multiple Google Forms</h2>
+      <p class="text-gray-300 mb-10">Paste the URLs of the Google Forms you'd like to autofill. OneFill will handle the rest.</p>
+
+      <form method="POST" action="/scan" class="bg-gray-800 p-6 rounded-lg shadow-md space-y-4">
+        <textarea name="form_urls" rows="6" placeholder="Paste Google Form URLs, one per line..." class="w-full p-3 bg-gray-700 text-white rounded resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300">Scan Forms</button>
+      </form>
+
+      <p class="mt-6 text-sm text-gray-400">
+        Need to view form stats? <a href="/dashboard" class="text-blue-400 hover:underline">Go to Dashboard</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-center py-4 text-gray-400 text-sm">
+    &copy; 2025 OneFill. Built for automation and simplicity.
+  </footer>
+
+  <script>AOS.init();</script>
 </body>
 </html>
