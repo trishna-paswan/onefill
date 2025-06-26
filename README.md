@@ -39,7 +39,25 @@ OneFill is an intelligent, web-based autofiller that allows users to submit mult
 
 ---
 
-<pre> ```text onefill/ │ ├── app.py ├── form_parser.py ├── autofiller.py ├── requirements.txt │ ├── static/ │ └── logo.jpg │ └── templates/ ├── index.html ├── unified_form.html ├── success.html └── dashboard.html ``` </pre>
+````markdown
+
+```text
+onefill/
+│
+├── app.py
+├── form_parser.py
+├── autofiller.py
+├── requirements.txt
+│
+├── static/
+│   └── logo.jpg
+│
+└── templates/
+    ├── index.html
+    ├── unified_form.html
+    ├── success.html
+    └── dashboard.html
+````
 
 ---
 
