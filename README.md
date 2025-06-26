@@ -1,4 +1,4 @@
-### 🌍 OneFill – Multi-Google Form AutoFiller with AI Matching
+# 🌍 OneFill – Multi-Google Form AutoFiller with AI Matching
 <p align="center"> <img src="https://socialify.git.ci/trishna-paswan/onefill/image?font=Bitter&language=1&name=1&owner=1&pattern=Solid&stargazers=1&theme=Dark" alt="OneFill Banner" /> </p>
 OneFill is an intelligent, web-based autofiller that allows users to submit multiple Google Forms at once using a single unified form. It extracts required fields from each form, smartly merges them, and uses AI-based fuzzy matching to auto-fill each form accurately.
 
@@ -48,26 +48,6 @@ playwright install chromium
 4. Run the App
 python app.py
 Visit: http://localhost:10000
-
-📁 Folder Structure
-cpp
-Copy
-Edit
-onefill/
-│
-├── app.py
-├── form_parser.py
-├── autofiller.py
-├── requirements.txt
-│
-├── static/
-│   └── logo.jpg
-│
-└── templates/
-    ├── index.html
-    ├── unified_form.html
-    ├── success.html
-    └── dashboard.html
     
 ### ✨ Author
 Made with ❤️ by Trishna Kumari Paswan
