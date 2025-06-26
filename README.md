@@ -38,10 +38,9 @@ OneFill is an intelligent, web-based autofiller that allows users to submit mult
 | Deployment   | Render                    |
 
 ---
+### 📁 Folder Structure
 
 ````markdown
-
-```text
 onefill/
 │
 ├── app.py
