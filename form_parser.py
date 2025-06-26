@@ -1,6 +1,5 @@
 from playwright.sync_api import sync_playwright
 import re
-
 def extract_fields_from_form(url):
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
