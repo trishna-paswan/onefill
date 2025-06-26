@@ -1,14 +1,80 @@
+<!-- templates/success.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Submission Results</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submission Results - OneFill</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<body>
-    <h2>Submission Summary</h2>
-    <ul>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <img src="/static/logo.jpg" alt="Logo" class="h-10 w-10 rounded-full border border-blue-400" />
+        <h1 class="text-xl font-bold text-white">OneFill</h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow flex items-center justify-center px-4 py-12">
+    <div class="bg-gray-800 shadow-lg p-10 rounded-2xl max-w-2xl w-full text-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-6 text-white">🎉 Submission Successful!</h2>
+      <ul class="space-y-4 text-left text-gray-300 max-w-full">
         {% for url, count in results %}
-            <li><strong>{{ url }}</strong>: Filled {{ count }} fields</li>
+          <li class="bg-gray-700 px-4 py-3 rounded-lg break-words overflow-auto whitespace-normal">
+            <span class="font-semibold text-white">{{ url }}</span><br>
+            <span class="text-sm">✅ Filled <span class="text-green-400 font-medium">{{ count }}</span> fields</span>
+          </li>
         {% endfor %}
-    </ul>
+      </ul>
+
+      <a href="/" class="mt-8 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
+        ← Back to Home
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-center py-4 text-gray-400 text-sm">
+    &copy; 2025 <strong>OneFill</strong>. Made for effortless automation.
+  </footer>
+
+  <!-- JS Confetti + AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // Launch confetti on load
+    window.onload = function () {
+      const duration = 2 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+      const interval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) return clearInterval(interval);
+
+        const particleCount = 50 * (timeLeft / duration);
+        confetti(Object.assign({}, defaults, {
+          particleCount,
+          origin: { x: Math.random(), y: Math.random() - 0.2 }
+        }));
+      }, 250);
+    };
+  </script>
 </body>
 </html>
