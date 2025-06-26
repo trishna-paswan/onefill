@@ -4,7 +4,10 @@ from form_parser import extract_fields_from_form
 from autofiller import fill_google_form
 from fuzzywuzzy import fuzz
 import re
+from datetime import datetime
 import subprocess
+
+submission_logs = []  # Global list to track submission history
 
 # Ensure Playwright browsers are installed at runtime on Render
 subprocess.run(["playwright", "install", "chromium"], check=False)
@@ -14,6 +17,17 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
+
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template(
+        "dashboard.html",
+        total_forms=len(submission_logs),
+        total_fields=sum(log["fields_filled"] for log in submission_logs),
+        success_rate=round(100 * sum(log["success"] for log in submission_logs) / len(submission_logs)) if submission_logs else 0,
+        submission_logs=submission_logs
+    )
 
 @app.route("/scan", methods=["POST"])
 def scan():
@@ -65,7 +79,6 @@ def scan():
             final_fields.append(new_field)
 
     return render_template("unified_form.html", fields=sorted(final_fields), urls=urls)
-
 @app.route("/fill", methods=["POST"])
 def fill():
     user_data = {k: v for k, v in request.form.items() if k != "urls"}
@@ -73,10 +86,22 @@ def fill():
     results = []
 
     for url in urls:
-        filled = fill_google_form(url, user_data)
-        results.append((url, filled))
+        fields_filled = fill_google_form(url, user_data)  # Returns number of fields filled
+        success = fields_filled > 0
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+        # Log the submission
+        submission_logs.append({
+            "url": url,
+            "fields_filled": fields_filled,
+            "success": success,
+            "timestamp": timestamp
+        })
+
+        results.append((url, fields_filled))
 
     return render_template("success.html", results=results)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
